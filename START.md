@@ -16,8 +16,9 @@ Una vez configurado el .env ejecutar los siguientes comandos en el CLI del proye
 
 > npm install
 > php artisan migrate
+> php artisan db:seed --class=DogInfoSeeder
 
-Para lanzar el proyecto:
+# Para lanzar el proyecto:
 
 > npm run dev
 > php artisan serve
