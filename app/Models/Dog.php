@@ -10,4 +10,8 @@ class Dog extends Model
     use HasFactory;
     protected $table = 'dogs';
 
+    protected $fillable = [
+        'image', 'name', 'age_months', 'race', 'size', 'hair_color', 'hair_style',
+
+    ];
 }
