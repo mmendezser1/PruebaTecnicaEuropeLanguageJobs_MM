@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/dogs', [HomeController::class, 'getDogs']);
+Route::post('/create/dog', [HomeController::class, 'createDog']);
