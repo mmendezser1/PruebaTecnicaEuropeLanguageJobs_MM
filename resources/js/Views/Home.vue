@@ -7,7 +7,7 @@
 
 <script>
 import api from "../api/index";
-import Dog from "./Dog.vue";
+import Dog from "../Components/Dog.vue";
 import DogModel from "../Models/Dog";
 export default {
     name: "Home",

@@ -1,8 +1,6 @@
-// routes.js
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "./Components/Home.vue";
-import About from "./Components/About.vue";
-import EditDog from "./Components/EditDog.vue";
+import Home from "./Views/Home.vue";
+import EditDog from "./Views/EditDog.vue";
 const routes = [
     {
         path: "/:catchAll(.*)",
@@ -12,11 +10,6 @@ const routes = [
         path: "/",
         name: "Home",
         component: Home,
-    },
-    {
-        path: "/about",
-        name: "About",
-        component: About,
     },
     {
         path: "/edit/:dogId",
