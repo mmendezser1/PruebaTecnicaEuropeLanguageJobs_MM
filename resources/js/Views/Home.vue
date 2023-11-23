@@ -1,5 +1,6 @@
 <template>
     <h1>Hello World from Home.vue</h1>
+    <button @click="addDog">CREATE DOG</button>
     <p v-for="item in dogs" :key="item.id">
         <Dog :dog="item" />
     </p>
@@ -44,6 +45,9 @@ export default {
                 element.hair_color,
                 element.hair_style
             );
+        },
+        addDog() {
+            this.$router.push("/createDog");
         },
     },
 };

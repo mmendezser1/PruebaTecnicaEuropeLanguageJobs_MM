@@ -10,6 +10,16 @@ const api = {
                 return error;
             });
     },
+    createDog: (data) => {
+        return axios
+            .post("/create/dog", data)
+            .then((response) => {
+                return response;
+            })
+            .catch((error) => {
+                return error;
+            });
+    },
 };
 
 export default api;
