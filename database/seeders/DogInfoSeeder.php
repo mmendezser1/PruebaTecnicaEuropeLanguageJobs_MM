@@ -13,7 +13,7 @@ class DogInfoSeeder extends Seeder
     public function run(): void
     {
         //id, image, name, age_months, race, size, hair_color, hair_style, created_at, updated_at
-        Dog::factory()->create([
+        Dog::insert([
             [
                 'image' => 'dog1_husky.jpg',
                 'name' => 'Pepe',
