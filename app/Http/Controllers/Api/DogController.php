@@ -7,7 +7,7 @@ use App\Models\Dog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class HomeController extends Controller
+class DogController extends Controller
 {
     public function getDogs()
     {
@@ -121,6 +121,14 @@ class HomeController extends Controller
             'races' => $dogs_races,
         ], 200);
 
+    }
+    public function getSizes(Request $req)
+    {
+        $dogs_sizes = Dog::distinct()->pluck('size');
+
+        return response()->json([
+            'sizes' => $dogs_sizes,
+        ], 200);
     }
 
 }
