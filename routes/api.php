@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\HomeController;
+use App\Http\Controllers\Api\DogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,14 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::get('/dogs', [DogController::class, 'getDogs']);
+Route::post('/dogs/filtered', [DogController::class, 'getFilteredDogs']);
+Route::get('/dogs/{numberdogs}', [DogController::class, 'getDogsByNumber']);
+Route::get('/races', [DogController::class, 'getRaces']);
+Route::get('/numberdogs', [DogController::class, 'getNumberOfDogs']);
+Route::get('/sizes', [DogController::class, 'getSizes']);
 
-Route::get('/dogs', [HomeController::class, 'getDogs']);
-Route::post('/dogs/filtered', [HomeController::class, 'getFilteredDogs']);
-Route::get('/dogs/{numberdogs}', [HomeController::class, 'getDogsByNumber']);
-Route::get('/races', [HomeController::class, 'getRaces']);
-Route::get('/numberdogs', [HomeController::class, 'getNumberOfDogs']);
-
-Route::post('/create/dog', [HomeController::class, 'createDog']);
+Route::post('/create/dog', [DogController::class, 'createDog']);
