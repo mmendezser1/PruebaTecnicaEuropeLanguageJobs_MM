@@ -1,9 +1,14 @@
 <template>
     <h1>Hello World from Home.vue</h1>
     <button @click="addDog">CREATE DOG</button>
-    <p v-for="item in dogs" :key="item.id">
-        <Dog :dog="item" />
-    </p>
+    <article class="welcome">
+        <!-- <img> -->
+    </article>
+    <article class="dogs_items">
+        <div v-for="item in dogs" :key="item.id">
+            <Dog :dog="item" />
+        </div>
+    </article>
 </template>
 
 <script>
@@ -47,7 +52,7 @@ export default {
             );
         },
         addDog() {
-            this.$router.push("/createDog");
+            this.$router.push("/create");
         },
     },
 };
