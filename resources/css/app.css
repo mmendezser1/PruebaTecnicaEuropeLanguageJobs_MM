@@ -1,25 +1,3 @@
-#app {
-    /* border: 1px solid red; */
-}
-.navbar {
-    /* border: 1px solid black; */
-    background-color: #0c3866;
-    color: aliceblue;
-    height: 7vh;
-}
 .mainContent {
-    border: 1px solid blue;
-    padding: 15px;
-}
-.dogs_items {
-    display: flex;
-    justify-content: space-between; /* Distribuye los elementos de manera uniforme */
-    flex-wrap: wrap;
-}
-.card {
-    width: calc(
-        25% - 10px
-    ); /* Ajusta el ancho de cada sección, restando el margen */
-    margin: 5px; /* Añade margen entre las secciones */
-    box-sizing: border-box;
+    /* padding: 15px; */
 }
