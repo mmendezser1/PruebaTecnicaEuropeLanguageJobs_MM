@@ -1,4 +1,4 @@
-class Dog {
+class DogModel {
     id;
     image;
     name;
@@ -28,4 +28,4 @@ class Dog {
     }
 }
 
-export default Dog;
+export default DogModel;
