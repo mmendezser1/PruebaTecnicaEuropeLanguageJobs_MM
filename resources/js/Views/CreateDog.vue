@@ -1,94 +1,101 @@
 <template>
-    <div class="form">
-        <div class="container mt-5">
-            <div class="row justify-content-center">
-                <form @submit.prevent="handleSubmit">
-                    <div class="col-md-6">
-                        <div class="form-group text-center">
-                            <label for="image">Image:</label>
-                            <input
-                                type="file"
-                                id="image"
-                                @change="handleFileChange"
-                                accept="image/*"
-                                class="form-control"
-                            />
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <!-- Primer grupo de campos -->
-                        <div class="form-group">
-                            <label for="name">Name:</label>
-                            <input
-                                class="form-control"
-                                type="text"
-                                id="name"
-                                v-model="formData.name"
-                                required
-                            />
-                        </div>
-                        <div class="form-group">
-                            <label for="race">Race:</label>
-                            <input
-                                class="form-control"
-                                type="text"
-                                id="race"
-                                v-model="formData.race"
-                                required
-                            />
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="age_months">Age in months:</label>
-                            <input
-                                type="number"
-                                id="age_months"
-                                class="form-control"
-                                v-model="formData.age_months"
-                                required
-                            />
-                        </div>
-
-                        <!-- Segundo grupo de campos -->
-                        <div class="form-group">
-                            <label for="size">Size:</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="size"
-                                v-model="formData.size"
-                                required
-                            />
-                        </div>
-                        <div class="form-group">
-                            <label for="hair_color">Hair Color:</label>
-                            <input
-                                type="text"
-                                id="hair_color"
-                                class="form-control"
-                                v-model="formData.hair_color"
-                                required
-                            />
-                        </div>
-                        <div class="form-group">
-                            <label for="hair_style">Hair Style:</label>
-                            <input
-                                type="text"
-                                id="hair_style"
-                                class="form-control"
-                                v-model="formData.hair_style"
-                                required
-                            />
-                        </div>
-
-                        <button class="btn btn-primary btn-block" type="submit">
-                            Create
-                        </button>
-                    </div>
-                </form>
+    <div class="create_dog_tittle">
+        <h1>Create new dog!</h1>
+    </div>
+    <div class="form-container">
+        <form @submit.prevent="handleSubmit" class="form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="image" class="form-label">Image:</label>
+                    <input
+                        type="file"
+                        id="image"
+                        @change="handleFileChange"
+                        accept="image/*"
+                        class="form-input"
+                    />
+                </div>
             </div>
-        </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name" class="form-label">Name:</label>
+                    <input
+                        class="form-input"
+                        type="text"
+                        id="name"
+                        v-model="formData.name"
+                        required
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="race" class="form-label">Race:</label>
+                    <input
+                        class="form-input"
+                        type="text"
+                        id="race"
+                        v-model="formData.race"
+                        required
+                    />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="age_months" class="form-label"
+                        >Age in months:</label
+                    >
+                    <input
+                        type="number"
+                        id="age_months"
+                        class="form-input"
+                        v-model="formData.age_months"
+                        required
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="size" class="form-label">Size:</label>
+                    <input
+                        type="text"
+                        class="form-input"
+                        id="size"
+                        v-model="formData.size"
+                        required
+                    />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="hair_color" class="form-label"
+                        >Hair Color:</label
+                    >
+                    <input
+                        type="text"
+                        id="hair_color"
+                        class="form-input"
+                        v-model="formData.hair_color"
+                        required
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="hair_style" class="form-label"
+                        >Hair Style:</label
+                    >
+                    <input
+                        type="text"
+                        id="hair_style"
+                        class="form-input"
+                        v-model="formData.hair_style"
+                        required
+                    />
+                </div>
+            </div>
+
+            <button class="button-form" type="submit">Create</button>
+        </form>
     </div>
 </template>
 
@@ -128,8 +135,31 @@ export default {
 
             const response = await api.createDog(formData);
             if (response.status === 200) {
-                this.$router.go(-1);
+                this.showSuccessMessage();
+            } else {
+                this.showErrorMessage(response.message);
             }
+        },
+        showSuccessMessage() {
+            this.$swal
+                .fire({
+                    title: "Succes!",
+                    text: "The dog was saved succesly!",
+                    icon: "success",
+                    timer: 2500,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                })
+                .then((result) => {
+                    this.$router.go(-1);
+                });
+        },
+        showErrorMessage(message) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong! " + message,
+            });
         },
     },
 };
