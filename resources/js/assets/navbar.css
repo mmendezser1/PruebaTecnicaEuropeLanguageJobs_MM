@@ -1,0 +1,11 @@
+.custom_navbar {
+    /* border: 1px solid black; */
+    background-color: #0c3866;
+    color: aliceblue;
+    height: 8vh;
+    padding: 15px;
+}
+.custom_navbar__img {
+    height: 50px;
+    width: 50px;
+}
