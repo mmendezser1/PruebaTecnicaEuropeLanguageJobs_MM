@@ -1,4 +1,24 @@
-img {
-    height: 100px;
-    width: 150px;
+.header__dog_img {
+    width: 120px; /* Ajusta el tamaño según tus necesidades */
+    height: 120px; /* Ajusta el tamaño según tus necesidades */
+    border-radius: 50%; /* Esto hace que la imagen sea redonda */
+    object-fit: cover;
+    margin-top: 10px;
+}
+
+.text-center {
+    text-align: center;
+    padding-top: 8px;
+}
+
+.dog__text {
+    font-family: Lato;
+    font-weight: 700;
+    color: #0c3866;
+    font-size: 18px;
+}
+.dog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

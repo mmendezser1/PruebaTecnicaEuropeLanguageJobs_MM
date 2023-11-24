@@ -1,20 +1,14 @@
 <template>
-    <div class="card">
-        <img
-            :src="'/images/' + dog.image"
-            class="card-img-top"
-            alt="Card image cap"
-        />
-
-        <div class="card-body">
-            <h5 class="card-title">{{ dog.name }}</h5>
-            <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-            </p>
-            <a href="#" @click="editDog(dog.id)" class="btn btn-primary"
-                >Go somewhere</a
-            >
+    <div class="dog">
+        <div class="header">
+            <img
+                :src="'/images/' + dog.image"
+                alt="example_dog_image"
+                class="header__dog_img"
+            />
+        </div>
+        <div class="text-center">
+            <span class="dog__text">{{ dog.name.toUpperCase() }}</span>
         </div>
     </div>
 </template>
@@ -32,7 +26,6 @@ export default defineComponent({
     },
     methods: {
         editDog(id) {
-            console.log(id);
             this.$router.push({
                 name: "EditComponent",
                 params: { dogId: id },

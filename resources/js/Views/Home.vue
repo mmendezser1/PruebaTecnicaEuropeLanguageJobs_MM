@@ -33,10 +33,16 @@
         </div>
     </article>
 
-    <button @click="addDog">CREATE DOG</button>
-    <article class="dogs_items">
-        <div v-for="item in dogs" :key="item.id">
-            <Dog :dog="item" />
+    <article class="main_content">
+        <div class="dogs_examples">
+            <div class="dogs_examples__tittle">
+                <h1>They are some dogs!</h1>
+            </div>
+            <div class="col-md-12 dogs_examples__images">
+                <div v-for="item in dogs" :key="item.id" class="col-md-4">
+                    <Dog :dog="item" />
+                </div>
+            </div>
         </div>
     </article>
 </template>
