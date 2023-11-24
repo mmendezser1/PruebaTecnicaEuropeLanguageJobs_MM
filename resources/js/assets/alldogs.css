@@ -1,0 +1,77 @@
+.article_all_dogs {
+    background-color: #f7f9f9;
+    padding: 20px 50px;
+}
+.container_search {
+    border: 1px solid black;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+.container_add_dog {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+.container_add_dog > button {
+    background-color: #0c3866;
+    border: 0px;
+}
+
+.container_all_dogs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container_dog {
+    width: 80%;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.dog-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.dog-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.dog-details {
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.dog-name {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.col-button-search {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+.col-button-search > button {
+    background-color: #0c3866;
+    border: 0px;
+}
+.clear {
+    margin-left: 5px;
+    background-color: red !important;
+}
