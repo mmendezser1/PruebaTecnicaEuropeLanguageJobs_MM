@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
-    public function getDogs(Request $req)
+    public function getDogs()
     {
         $dogs = Dog::all();
 
@@ -71,4 +71,25 @@ class HomeController extends Controller
         }
 
     }
+
+    public function getNumberOfDogs(Request $req)
+    {
+        $dogs = Dog::all()->count();
+
+        return response()->json([
+            'dogs' => $dogs,
+        ], 200);
+
+    }
+
+    public function getRaces(Request $req)
+    {
+        $dogs_races = Dog::distinct()->pluck('race')->count();
+
+        return response()->json([
+            'races' => $dogs_races,
+        ], 200);
+
+    }
+
 }

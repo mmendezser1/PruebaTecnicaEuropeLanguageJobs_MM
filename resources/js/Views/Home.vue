@@ -12,7 +12,8 @@
             <div class="col-md-5 offset-md-2 col-xs-12">
                 <div class="item-list">
                     <span
-                        ><strong class="item-list__strong">+ 2,500</strong
+                        ><strong class="item-list__strong"
+                            >+ {{ numberOfRaces }}</strong
                         ><br />Dogs races
                     </span>
                 </div>
@@ -25,7 +26,8 @@
                 </div>
                 <div class="item-list">
                     <span
-                        ><strong class="item-list__strong">+ 50,000</strong
+                        ><strong class="item-list__strong"
+                            >+ {{ numberOfDogs }}</strong
                         ><br />Dogs added to the platform
                     </span>
                 </div>
@@ -57,10 +59,14 @@ export default {
     components: { Dog },
     mounted() {
         this.getDogs();
+        this.getNumberOfRaces();
+        this.getNumberOfDogs();
     },
     data() {
         return {
             dogs: [],
+            numberOfRaces: 0,
+            numberOfDogs: 0,
         };
     },
     methods: {
@@ -91,6 +97,18 @@ export default {
 
         seeAllDogs() {
             this.$router.push("/dogs");
+        },
+        async getNumberOfRaces() {
+            const response = await api.getRaces();
+            if (response.status === 200) {
+                this.numberOfRaces = response.data.races;
+            }
+        },
+        async getNumberOfDogs() {
+            const response = await api.getDogsNumber();
+            if (response.status === 200) {
+                this.numberOfDogs = response.data.dogs;
+            }
         },
     },
 };

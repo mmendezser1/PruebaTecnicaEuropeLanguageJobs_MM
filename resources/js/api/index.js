@@ -30,6 +30,26 @@ const api = {
                 return error;
             });
     },
+    getRaces: () => {
+        return axios
+            .get("/races")
+            .then((response) => {
+                return response;
+            })
+            .catch((error) => {
+                return error;
+            });
+    },
+    getDogsNumber: () => {
+        return axios
+            .get("/numberdogs")
+            .then((response) => {
+                return response;
+            })
+            .catch((error) => {
+                return error;
+            });
+    },
 };
 
 export default api;
