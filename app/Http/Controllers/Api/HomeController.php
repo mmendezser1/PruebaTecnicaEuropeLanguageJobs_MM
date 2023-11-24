@@ -23,7 +23,7 @@ class HomeController extends Controller
 
         $name = $req->name;
         $race = $req->race;
-        $age_months = $req->age_months;
+        $age_months = $req->age_months === "null" ? null : $req->age_months;
         $size = $req->size;
 
         $query = Dog::query();
@@ -36,15 +36,15 @@ class HomeController extends Controller
             $query->where('race', 'like', '%' . $race . '%');
         }
 
-        if (isset($age_months) && $age_months > 0) {
+        if (isset($age_months)) {
             $query->where('age_months', $age_months);
         }
 
         if (isset($size) && $size !== "") {
             $query->where('size', $size);
         }
-        $results = $query->get();
 
+        $results = $query->get();
         return response()->json([
             'dogs' => $results,
         ], 200);

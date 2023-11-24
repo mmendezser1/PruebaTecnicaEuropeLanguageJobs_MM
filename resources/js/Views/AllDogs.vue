@@ -57,7 +57,7 @@
         <div class="container_add_dog">
             <button @click="addDog" class="btn btn-primary">+</button>
         </div>
-        <div class="container_all_dogs">
+        <div v-if="dogs.length > 0" class="container_all_dogs">
             <div v-for="item in dogs" :key="item.id" class="container_dog">
                 <div class="dog-header">
                     <div class="dog-image">
@@ -78,6 +78,9 @@
                 </div>
             </div>
         </div>
+        <div v-else class="container_no_dogs">
+            <p>No results!</p>
+        </div>
     </article>
 </template>
 
@@ -94,28 +97,28 @@ export default defineComponent({
     },
     data() {
         return {
-            dogs: [],
             formData: {
                 name: "",
                 race: "",
                 age_months: null,
                 size: "",
             },
+            dogs: [],
         };
     },
     methods: {
         async getDogs() {
             const response = await api.getDogs();
             if (response.status === 200) {
+                console.log(response.data.dogs);
                 this.dogs = response.data.dogs.map((element) => {
                     return this.parseElemntToDog(element);
                 });
+                console.log(this.dogs.size);
             }
         },
 
         parseElemntToDog(element) {
-            console.log(element);
-
             return new DogModel(
                 element.id,
                 element.image,
@@ -128,21 +131,17 @@ export default defineComponent({
             );
         },
 
-        addDog() {
-            this.$router.push("/create");
-        },
         async handleSubmit() {
-            alert(JSON.stringify(this.formData));
-
             let formData = new FormData();
             formData.append("name", this.formData.name);
             formData.append("race", this.formData.race);
             formData.append("age_months", this.formData.age_months);
             formData.append("size", this.formData.size);
 
-            const response = await api.createDog(formData);
+            const response = await api.getDogsFiltered(formData);
             if (response.status === 200) {
                 console.log(response.data);
+                this.dogs = response.data.dogs;
             }
         },
         clearForm() {
@@ -152,6 +151,11 @@ export default defineComponent({
                 age_months: null,
                 size: "",
             };
+            this.handleSubmit();
+        },
+
+        addDog() {
+            this.$router.push("/create");
         },
     },
 });
