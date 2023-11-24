@@ -28,7 +28,7 @@ class DogInfoSeeder extends Seeder
                 'name' => 'Manolo',
                 'age_months' => '42',
                 'race' => 'Golden retriever',
-                'size' => 'Big',
+                'size' => 'Medium',
                 'hair_color' => 'Brown',
                 'hair_style' => 'Long straight',
             ], [
