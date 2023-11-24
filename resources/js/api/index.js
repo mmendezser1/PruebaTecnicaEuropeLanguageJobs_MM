@@ -10,6 +10,16 @@ const api = {
                 return error;
             });
     },
+    getDogsForHomeView: () => {
+        return axios
+            .get("/dogs/3")
+            .then((response) => {
+                return response;
+            })
+            .catch((error) => {
+                return error;
+            });
+    },
     createDog: (data) => {
         return axios
             .post("/create/dog", data)

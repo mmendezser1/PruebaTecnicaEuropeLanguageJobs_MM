@@ -19,6 +19,16 @@ class HomeController extends Controller
 
     }
 
+    public function getDogsByNumber($numberdogs)
+    {
+        $dogs = Dog::take($numberdogs)->get();
+
+        return response()->json([
+            'dogs' => $dogs,
+        ], 200);
+
+    }
+
     public function createDog(Request $req)
     {
 

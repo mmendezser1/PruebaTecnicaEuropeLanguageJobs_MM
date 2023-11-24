@@ -65,7 +65,7 @@ export default {
     },
     methods: {
         async getDogs() {
-            const response = await api.getDogs();
+            const response = await api.getDogsForHomeView(3);
             if (response.status === 200) {
                 console.log(response.data.dogs);
                 this.dogs = response.data.dogs.map((element) => {
