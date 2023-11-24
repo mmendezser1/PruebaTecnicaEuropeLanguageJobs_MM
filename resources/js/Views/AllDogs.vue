@@ -55,7 +55,13 @@
             </div>
         </form>
         <div class="container_add_dog">
-            <button @click="addDog" class="btn btn-primary">+</button>
+            <button
+                @click="addDog"
+                title="Add new Dog!"
+                class="btn btn-primary"
+            >
+                +
+            </button>
         </div>
         <div v-if="dogs.length > 0" class="container_all_dogs">
             <div v-for="item in dogs" :key="item.id" class="container_dog">
