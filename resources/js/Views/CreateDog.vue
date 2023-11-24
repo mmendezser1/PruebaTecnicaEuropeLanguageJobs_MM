@@ -1,61 +1,100 @@
 <template>
-    <div>
-        <form @submit.prevent="handleSubmit">
-            <div>
-                <label for="image">Image:</label>
-                <input
-                    type="file"
-                    id="image"
-                    @change="handleFileChange"
-                    accept="image/*"
-                />
+    <div class="form">
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <form @submit.prevent="handleSubmit">
+                    <div class="col-md-6">
+                        <div class="form-group text-center">
+                            <label for="image">Image:</label>
+                            <input
+                                type="file"
+                                id="image"
+                                @change="handleFileChange"
+                                accept="image/*"
+                                class="form-control"
+                            />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Primer grupo de campos -->
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input
+                                class="form-control"
+                                type="text"
+                                id="name"
+                                v-model="formData.name"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="race">Race:</label>
+                            <input
+                                class="form-control"
+                                type="text"
+                                id="race"
+                                v-model="formData.race"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="age_months">Age in months:</label>
+                            <input
+                                type="number"
+                                id="age_months"
+                                class="form-control"
+                                v-model="formData.age_months"
+                                required
+                            />
+                        </div>
+
+                        <!-- Segundo grupo de campos -->
+                        <div class="form-group">
+                            <label for="size">Size:</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="size"
+                                v-model="formData.size"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="hair_color">Hair Color:</label>
+                            <input
+                                type="text"
+                                id="hair_color"
+                                class="form-control"
+                                v-model="formData.hair_color"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="hair_style">Hair Style:</label>
+                            <input
+                                type="text"
+                                id="hair_style"
+                                class="form-control"
+                                v-model="formData.hair_style"
+                                required
+                            />
+                        </div>
+
+                        <button class="btn btn-primary btn-block" type="submit">
+                            Create
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div>
-                <label for="name">Name:</label>
-                <input type="text" id="name" v-model="formData.name" required />
-            </div>
-            <div>
-                <label for="race">Race:</label>
-                <input type="text" id="race" v-model="formData.race" required />
-            </div>
-            <div>
-                <label for="age_months">Age in months:</label>
-                <input
-                    type="number"
-                    id="age_months"
-                    v-model="formData.age_months"
-                    required
-                />
-            </div>
-            <div>
-                <label for="size">Size :</label>
-                <input type="text" id="size" v-model="formData.size" required />
-            </div>
-            <div>
-                <label for="hair_color">Hair Color:</label>
-                <input
-                    type="text"
-                    id="hair_color"
-                    v-model="formData.hair_color"
-                    required
-                />
-            </div>
-            <div>
-                <label for="hair_style">Hair Style</label>
-                <input
-                    type="text"
-                    id="hair_style"
-                    v-model="formData.hair_style"
-                    required
-                />
-            </div>
-            <button type="submit">Create</button>
-        </form>
+        </div>
     </div>
 </template>
 
 <script>
 import api from "../api/index";
+import "../assets/createdog.css";
 export default {
     name: "CreateDog",
 

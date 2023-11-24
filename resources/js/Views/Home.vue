@@ -5,8 +5,8 @@
                 <h1 class="title welcome__tittle">
                     Europe languages jobs, also likes dogs!
                 </h1>
-                <button href="/companies/registry" class="welcome__btn">
-                    ADD DOG
+                <button @click="seeAllDogs" class="welcome__btn">
+                    SEE ALL DOGS
                 </button>
             </div>
             <div class="col-md-5 offset-md-2 col-xs-12">
@@ -88,8 +88,9 @@ export default {
                 element.hair_style
             );
         },
-        addDog() {
-            this.$router.push("/create");
+
+        seeAllDogs() {
+            this.$router.push("/dogs");
         },
     },
 };
