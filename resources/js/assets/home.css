@@ -1,0 +1,57 @@
+.welcome {
+    background-size: cover;
+    background-image: url(/images/companies.png);
+    background-position: 50%;
+    height: 100vh;
+    padding: 20px;
+}
+
+.dogs_items {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos de manera uniforme */
+    flex-wrap: wrap;
+}
+
+.welcome__btn {
+    background-color: #fff;
+    color: #0c3866;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 15px 75px;
+    margin-top: 30px;
+    border-radius: 30px;
+    border: 0px;
+}
+.welcome__btn:hover {
+    background-color: #f7f9f9;
+}
+.welcome__tittle {
+    text-align: left;
+    font-family: Lato, sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 1.96px;
+    margin-top: 50px;
+}
+.item-list {
+    font-size: 22px;
+    padding-left: 30px;
+    color: #fff;
+    vertical-align: middle;
+    margin-top: 40px;
+}
+.item-list__strong {
+    font-size: 30px;
+}
+
+.welcome__div__presentation {
+    /* margin-left: 25px; */
+
+    height: auto;
+    width: 100%;
+}
+.banner-container {
+    margin-top: 15vh;
+}
