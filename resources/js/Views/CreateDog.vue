@@ -57,13 +57,18 @@
 
                 <div class="form-group">
                     <label for="size" class="form-label">Size:</label>
-                    <input
-                        type="text"
-                        class="form-input"
-                        id="size"
+                    <select
+                        class="form-control"
                         v-model="formData.size"
+                        id="inputSize"
                         required
-                    />
+                    >
+                        <option value="" selected>Size</option>
+
+                        <option v-for="item in sizes" :key="item" :value="item">
+                            {{ item }}
+                        </option>
+                    </select>
                 </div>
             </div>
 
@@ -104,7 +109,9 @@ import api from "../api/index";
 import "../assets/createdog.css";
 export default {
     name: "CreateDog",
-
+    mounted() {
+        this.getSizes();
+    },
     data() {
         return {
             formData: {
@@ -116,6 +123,7 @@ export default {
                 hair_color: "",
                 hair_style: "",
             },
+            sizes: [],
         };
     },
 
@@ -160,6 +168,12 @@ export default {
                 title: "Oops...",
                 text: "Something went wrong! " + message,
             });
+        },
+        async getSizes() {
+            const response = await api.getDogsSizes();
+            if (response.status === 200) {
+                this.sizes = response.data.sizes;
+            }
         },
     },
 };

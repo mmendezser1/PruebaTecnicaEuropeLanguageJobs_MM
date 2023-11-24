@@ -50,6 +50,16 @@ const api = {
                 return error;
             });
     },
+    getDogsSizes: () => {
+        return axios
+            .get("/sizes")
+            .then((response) => {
+                return response;
+            })
+            .catch((error) => {
+                return error;
+            });
+    },
     getDogsFiltered: (data) => {
         return axios
             .post("/dogs/filtered", data)
