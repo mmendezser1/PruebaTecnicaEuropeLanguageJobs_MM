@@ -18,7 +18,38 @@ class HomeController extends Controller
         ], 200);
 
     }
+    public function getFilteredDogs(Request $req)
+    {
 
+        $name = $req->name;
+        $race = $req->race;
+        $age_months = $req->age_months;
+        $size = $req->size;
+
+        $query = Dog::query();
+
+        if (isset($name) && $name !== "") {
+            $query->where('name', 'like', '%' . $name . '%');
+        }
+
+        if (isset($race) && $race !== "") {
+            $query->where('race', 'like', '%' . $race . '%');
+        }
+
+        if (isset($age_months) && $age_months > 0) {
+            $query->where('age_months', $age_months);
+        }
+
+        if (isset($size) && $size !== "") {
+            $query->where('size', $size);
+        }
+        $results = $query->get();
+
+        return response()->json([
+            'dogs' => $results,
+        ], 200);
+
+    }
     public function getDogsByNumber($numberdogs)
     {
         $dogs = Dog::take($numberdogs)->get();

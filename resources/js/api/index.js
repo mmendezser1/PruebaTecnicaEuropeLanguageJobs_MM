@@ -50,6 +50,16 @@ const api = {
                 return error;
             });
     },
+    getDogsFiltered: (data) => {
+        return axios
+            .post("/dogs/filtered", data)
+            .then((response) => {
+                return response;
+            })
+            .catch((error) => {
+                return error;
+            });
+    },
 };
 
 export default api;

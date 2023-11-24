@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/dogs', [HomeController::class, 'getDogs']);
+Route::get('/dogs/filtered', [HomeController::class, 'getFilteredDogs']);
 Route::get('/dogs/{numberdogs}', [HomeController::class, 'getDogsByNumber']);
 Route::get('/races', [HomeController::class, 'getRaces']);
 Route::get('/numberdogs', [HomeController::class, 'getNumberOfDogs']);
