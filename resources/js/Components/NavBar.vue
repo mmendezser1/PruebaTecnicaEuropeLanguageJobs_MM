@@ -1,6 +1,10 @@
 <template>
     <nav class="custom_navbar">
-        <img src="images/logo.svg" class="custom_navbar__img" />
+        <img
+            @click="goToHome"
+            src="images/logo.svg"
+            class="custom_navbar__img"
+        />
     </nav>
 </template>
 
@@ -9,5 +13,11 @@ import "../assets/navbar.css";
 
 export default {
     name: "NavBar",
+    methods: {
+        goToHome: () => {
+            //  this.$router.push("/");
+            window.location.pathname = "/";
+        },
+    },
 };
 </script>
