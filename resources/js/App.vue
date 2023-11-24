@@ -1,8 +1,8 @@
 <template>
     <NavBar />
-    <diV class="mainContent">
+    <div class="mainContent">
         <router-view></router-view>
-    </diV>
+    </div>
 </template>
 
 <script>
