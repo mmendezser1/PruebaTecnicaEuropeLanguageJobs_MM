@@ -33,9 +33,10 @@
                         id="inputSize"
                     >
                         <option value="" selected>Size</option>
-                        <option value="small">Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="big">Big</option>
+
+                        <option v-for="item in sizes" :key="item" :value="item">
+                            {{ item }}
+                        </option>
                     </select>
                 </div>
             </div>
@@ -64,22 +65,17 @@
             </button>
         </div>
         <div v-if="dogs.length > 0" class="container_all_dogs">
-            <div v-for="item in dogs" :key="item.id" class="container_dog">
-                <div class="dog-header">
-                    <div class="dog-image">
-                        <img :src="'/images/' + item.image" alt="Dog Image" />
-                    </div>
-                    <div class="dog-info">
-                        <h2 class="dog-name">
-                            {{ item.name }}
-                        </h2>
-                        <p>{{ item.age_months }} months old</p>
-                    </div>
+            <div v-for="dog in dogs" :key="dog.id" class="container_dog">
+                <div class="dog-image">
+                    <img :src="'/images/' + dog.image" alt="Dog Image" />
+                </div>
+                <div class="dog-info">
+                    <h2 class="dog-name">{{ dog.name }}</h2>
+                    <p>{{ dog.age_months }} meses</p>
                     <div class="dog-details">
-                        <strong> Size:</strong> {{ item.size }}
-                        <strong> Hair Color: </strong>
-                        {{ item.hair_color }} <strong> Hair Style:</strong>
-                        {{ item.hair_style }}
+                        <strong>Size:</strong> {{ dog.size }}
+                        <strong>Hair Color:</strong> {{ dog.hair_color }}
+                        <strong>Hair Style:</strong> {{ dog.hair_style }}
                     </div>
                 </div>
             </div>
@@ -100,6 +96,7 @@ export default defineComponent({
     name: "Dogs",
     mounted() {
         this.getDogs();
+        this.getSizes();
     },
     data() {
         return {
@@ -110,6 +107,7 @@ export default defineComponent({
                 size: "",
             },
             dogs: [],
+            sizes: [],
         };
     },
     methods: {
@@ -162,6 +160,12 @@ export default defineComponent({
 
         addDog() {
             this.$router.push("/create");
+        },
+        async getSizes() {
+            const response = await api.getDogsSizes();
+            if (response.status === 200) {
+                this.sizes = response.data.sizes;
+            }
         },
     },
 });
