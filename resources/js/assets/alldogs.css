@@ -46,7 +46,7 @@
     height: 120px;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid #007bff;
+    border: 2px solid #0c3866;
 }
 
 .dog-info {
@@ -54,7 +54,7 @@
 }
 
 .dog-name {
-    color: #007bff;
+    color: #0c3866;
     margin-bottom: 5px;
     font-size: 1.5em;
 }
