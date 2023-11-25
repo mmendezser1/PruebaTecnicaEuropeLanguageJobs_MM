@@ -10,7 +10,7 @@ DB_DATABASE=pruebatecnicaeuropelanguagejobs_mm
 DB_USERNAME=[usuario_especifico]
 DB_PASSWORD=[contraseña_especifico]
 
-Ejecutar "CREATE SCHEMA PruebaTecnicaEuropeLanguageJobs_MM" en la consola de SQL para crear la;
+Ejecutar "CREATE SCHEMA PruebaTecnicaEuropeLanguageJobs_MM" en la consola de SQL para crear la base de datos;
 
 Una vez configurado el .env ejecutar los siguientes comandos en el CLI del proyecto:
 
