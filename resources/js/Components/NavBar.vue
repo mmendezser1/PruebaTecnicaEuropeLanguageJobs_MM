@@ -2,7 +2,7 @@
     <nav class="custom_navbar">
         <img
             @click="goToHome"
-            src="images/logo.svg"
+            src="images/logo.png"
             class="custom_navbar__img"
         />
     </nav>
